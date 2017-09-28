@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Brutus", "Brutus.vcxproj", "{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BrutusTests", "BrutusTests\BrutusTests.vcxproj", "{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}.Release|x64.Build.0 = Release|x64
 		{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}.Release|x86.ActiveCfg = Release|Win32
 		{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}.Release|x86.Build.0 = Release|Win32
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Debug|x64.ActiveCfg = Debug|x64
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Debug|x64.Build.0 = Debug|x64
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Debug|x86.ActiveCfg = Debug|Win32
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Debug|x86.Build.0 = Debug|Win32
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Release|x64.ActiveCfg = Release|x64
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Release|x64.Build.0 = Release|x64
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Release|x86.ActiveCfg = Release|Win32
+		{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

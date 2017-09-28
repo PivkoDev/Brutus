@@ -1,0 +1,23 @@
+﻿  Tools.cpp
+  Serializer.cpp
+  Neuro.cpp
+d:\c\projekty\brutus\source\neuronets\neuro.cpp(36): warning C4018: '<': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\neuro.cpp(71): warning C4018: '<': signed/unsigned mismatch
+  Net.cpp
+d:\c\projekty\brutus\source\neuronets\net.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\c\projekty\brutus\source\neuronets\net.cpp(77): warning C4018: '<': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\net.cpp(137): warning C4018: '>': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\net.cpp(138): warning C4018: '>': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\net.cpp(155): warning C4018: '<': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\net.cpp(198): warning C4018: '<': signed/unsigned mismatch
+d:\c\projekty\brutus\source\neuronets\net.cpp(205): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+d:\c\projekty\brutus\source\main.cpp(20): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+  ShaderLoader.cpp
+  GameModels.cpp
+  Generating Code...
+     Creating library D:\C\Projekty\Brutus\Debug\Brutus.lib and object D:\C\Projekty\Brutus\Debug\Brutus.exp
+  Brutus.vcxproj -> D:\C\Projekty\Brutus\Debug\Brutus.exe
+  Brutus.vcxproj -> D:\C\Projekty\Brutus\Debug\Brutus.pdb (Partial PDB)
+  0 File(s) copied
+  0 File(s) copied

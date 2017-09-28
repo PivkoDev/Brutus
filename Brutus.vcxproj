@@ -74,13 +74,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Externals\glew\include\GL\;$(ProjectDir)\Externals\freeglut\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_ROOT);D:\C\Externals\glew\include\GL\;D:\C\Externals\freeglut\include\GL;D:\C\Externals\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)\Externals\freeglut\lib\;$(ProjectDir)\Externals\glew\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)\stage\lib;D:\C\Externals\freeglut\lib\;D:\C\Externals\glew\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d  "$(ProjectDir)\Externals\Freeglut\bin\Debug\*.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d  "D:\C\Externals\Freeglut\bin\Debug\*.dll" "$(OutDir)"
+xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -88,11 +90,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Externals\glew\include\GL\;$(ProjectDir)\Externals\freeglut\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\Externals\glew\include\GL\;$(ProjectDir)\..\..\Externals\freeglut\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;freeglutd.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)\Externals\freeglut\lib\;$(ProjectDir)\Externals\glew\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;freeglutd.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\C\externals\freeglut\lib;D:\C\externals\glew\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,7 +124,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\GameModels.cpp" />
+    <ClCompile Include="Core\ShaderLoader.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\NeuroNets\Net.cpp" />
+    <ClCompile Include="Source\NeuroNets\Neuro.cpp" />
+    <ClCompile Include="Source\Serializer.cpp" />
+    <ClCompile Include="Source\Tools.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\GameModels.h" />
+    <ClInclude Include="Core\ShaderLoader.h" />
+    <ClInclude Include="Core\VertexFormat.h" />
+    <ClInclude Include="Source\NeuroNets\Net.h" />
+    <ClInclude Include="Source\NeuroNets\Neuro.h" />
+    <ClInclude Include="Source\Serializer.h" />
+    <ClInclude Include="Source\Tools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\FragmentShader.glsl" />
+    <None Include="Shaders\VertexShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Log.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
