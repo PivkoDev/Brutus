@@ -27,7 +27,9 @@ public:
 	// state flow
 	float sum;
 	float output;
+	float delta;
 	std::vector<float> inputs;
+
 	ErrorNeuro error;
 
 	// flow

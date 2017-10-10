@@ -19,7 +19,7 @@ Net::setUpTestNetwork()
 	std::vector<int> net = { 2,2,4,2,2 };
 
 	// cwiartki 1,2,3,4 ( 0,1,2,3 ) binarnie 00,01,10,11
-	std::vector<float> inputs_1 = { -1.f,-1.f };	// 3(2)
+	std::vector<float> inputs_1 = { -1.f,-1.f };	// 3 (2) (10)
 	std::vector<float> outputs_1 = { 1.f, 0.f };
 	
 	std::vector<std::vector<float>> learning_vectors;
@@ -63,6 +63,8 @@ void
 Net::setup(std::vector<int>& net)
 {
 	neuros.clear();
+
+	layers_count = net.size();
 
 	for (int layer=0; layer<net.size(); layer++ )
 	{
@@ -144,11 +146,12 @@ Net::learnStep(int index)
 		errors.push_back("wrong position in learning vector");
 		return;
 	}
+
+	// forward propagation
 	for (int n = 0; n < neuros.size(); n++)
 	{
 		auto& neuro = neuros[n];
-		//std::cout << "ln[" << n << "]:" << "\n";
-
+	
 		// Input layer
 		if (neuro.layer == 0)
 		{
@@ -176,7 +179,6 @@ Net::learnStep(int index)
 			{
 				auto& neuro_prev = neuros[n_prev];
 				layer_prev = neuro_prev.layer;
-
 
 				if (neuro_prev.layer == (neuro.layer - 1))
 				{
@@ -209,6 +211,59 @@ Net::learnStep(int index)
 		}
 		std::cout << "Neuro sum: " << neuro.sum << " activated: " << neuro.output << "\n";
 	}
+
+	// backward propagation
+	int output_index = 0;
+	int output_index_rev = outputs.size() - 1;
+
+	std::cout << "\nbackward propagation\n";
+
+	for (int n = neuros.size() - 1; n >= 0; n--)
+	{
+		auto& neuro = neuros[n];
+
+		// Output layer
+		if (neuro.layer == (layers_count - 1))
+		{
+			output_index_rev = outputs.size() - 1 - output_index;
+			assert(output_index_rev >= 0 && output_index_rev < outputs.size());
+
+			neuro.delta = outputs[output_index_rev] - neuro.output;
+			output_index++;
+
+		}
+		else
+		{
+			// go through next layer neuros
+			int n_next = n + 1;
+			int layer_next = neuro.layer;
+			int next_index = 0;
+		
+			// reset delta
+			neuro.delta = 0;
+
+			while (n_next < neuros.size() && layer_next <= (neuro.layer + 1))
+			{
+				auto& neuro_next = neuros[n_next];
+				layer_next = neuro_next.layer;
+
+				int weight_index = 0;
+
+				if (neuro_next.layer == (neuro.layer + 1))
+				{
+					assert(weight_index < neuro_next.weights.size());
+					neuro.delta += neuro_next.delta * neuro_next.weights[weight_index];
+					weight_index++;
+				}
+
+				n_next++;
+			}
+		}
+
+		std::cout << "[" << neuro.layer << "].neuro[" << n << "].delta = " << neuro.delta << "\n";
+	}
+
+	std::cout << "\n";
 }
 
 

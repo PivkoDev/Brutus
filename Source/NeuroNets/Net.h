@@ -64,6 +64,7 @@ public:
 	// non persistent
 	bool learning_vector_validated;
 	bool learn_status_ok;
+	int layers_count;
 	std::vector<std::string> errors;
 	
 };
