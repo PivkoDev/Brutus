@@ -18,7 +18,7 @@ public:
 	~Neuro();
 
 	// state persistent
-	int in_count;
+	int inputs_count;
 	float x, y, z;
 	std::vector<float> weights;
 	int layer;

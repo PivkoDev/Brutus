@@ -15,12 +15,40 @@ class Net
 public:
 	Net();
 	~Net();
-
-	void init();
+	
+	/* Interface */
+	
+	/** 
+	 *	Seting up test network and learning vector. For testing purposes only.
+	 */
 	void setUpTestNetwork();
+
+
+	/** 
+	 *	Setting up learning vector. 
+	 *
+	 *	@param lv : test vector, [0]<float>inputs_1 [1]<float>outputs_1 [2]<float>inputs_2 [3]<float>outputs_2 ...
+	 */
 	void setupLearningVector(std::vector<std::vector<float>>& lv);
-	void setup(std::vector<int>&);
+
+	/**
+	 *	Setting up net architecture, neuros in each layer count.
+	 *
+	 *	@param net : vector with neuros count in each layer 
+	 *				 e.g. std::vector<int>= { 2,1,4,1,2 };
+	 *				 1st layer(input) with 2 neuros
+	 *				 2nd layer 1 neuro, 3rd layer 4 neuros ...
+	 */
+	void setup(std::vector<int>& net);
+
+	/**
+	 *	Learn process with defined steps count.
+	 *
+	 *	@param int : learn steps count
+	 */
 	void learn(int);
+
+
 	void learnStep(int);
 	void print();
 

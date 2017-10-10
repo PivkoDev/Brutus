@@ -7,9 +7,9 @@ Neuro::Neuro(int layer_in, int input_count) :
 	error(EN_None),
 	sum(0.f),
 	layer(layer_in),
-	in_count(input_count)
+	inputs_count(input_count)
 {
-	for (int i = 0; i < in_count; i++)
+	for (int i = 0; i < inputs_count; i++)
 	{
 		inputs.push_back(0.f);
 		weights.push_back(0.f);
@@ -35,7 +35,7 @@ Neuro::sumarize()
 
 	for (int index = 0; index < weights.size(); index++)
 	{
-		sum += inputs[index];
+		sum += inputs[index] * weights[index];
 	}
 }
 

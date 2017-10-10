@@ -14,19 +14,9 @@ Net::~Net()
 }
 
 void
-Net::init()
-{
-	if (neuros.size() == 0)
-	{
-		for (int i = 0; i < 10; i++)
-			neuros.push_back(Neuro());
-	}
-}
-
-void
 Net::setUpTestNetwork()
 {
-	std::vector<int> net = { 2,1,4,1,2 };
+	std::vector<int> net = { 2,2,4,2,2 };
 
 	// cwiartki 1,2,3,4 ( 0,1,2,3 ) binarnie 00,01,10,11
 	std::vector<float> inputs_1 = { -1.f,-1.f };	// 3(2)
@@ -133,6 +123,8 @@ Net::learnStep(int index)
 {
 	int inputs_index = index * 2;
 	int outputs_index = (index * 2) + 1;
+	
+	std::cout << "learnStep(" << index << ")\n";
 
 	if (inputs_index > learning_vectors.size() - 1 ||
 		outputs_index > learning_vectors.size() - 1)
@@ -155,12 +147,12 @@ Net::learnStep(int index)
 	for (int n = 0; n < neuros.size(); n++)
 	{
 		auto& neuro = neuros[n];
-		std::cout << "ln[" << n << "]:" << "\n";
+		//std::cout << "ln[" << n << "]:" << "\n";
 
 		// Input layer
-		if (n < inputs_count)
+		if (neuro.layer == 0)
 		{
-			if (neuro.in_count != 1 || neuro.inputs.size() != 1)
+			if (neuro.inputs_count != 1 || neuro.inputs.size() != 1)
 			{
 				learn_status_ok = false;
 				errors.push_back("neuro in input layer wrong inputs count");
@@ -172,14 +164,50 @@ Net::learnStep(int index)
 		}
 		else
 		{
+			//neuro
 
+			// go through previous layer neuros
+			int n_prev = n - 1;
+			int layer_prev = neuro.layer;
+			int prev_index = 0;
+			int prev_index_reversed = 0;
+
+			while (n_prev >= 0 && layer_prev >= (neuro.layer-1) )
+			{
+				auto& neuro_prev = neuros[n_prev];
+				layer_prev = neuro_prev.layer;
+
+
+				if (neuro_prev.layer == (neuro.layer - 1))
+				{
+					assert(prev_index >= 0 && prev_index < neuro.weights.size() && prev_index < neuro.inputs.size());
+
+					// last will be first because we iterate backwards
+					prev_index_reversed = neuro.inputs.size() - prev_index - 1;
+
+					assert(prev_index_reversed >= 0 && prev_index < neuro.weights.size());
+
+					neuro.inputs[prev_index_reversed] = neuro_prev.output;
+
+					prev_index += 1;
+				}
+
+				n_prev -= 1;
+			}
+
+			std::cout << "prev_count: " << prev_index << "\n";
 		}
 
-		for (int i = 0; i < neuro.in_count; i++)
+		// Neuro update main.
+		neuro.update();
+
+		// Just debug print then.
+		for (int i = 0; i < neuro.inputs_count; i++)
 		{
-			std::cout << " i: " << i << " : " << neuro.inputs[i];
-			std::cout << " : " << neuro.weights[i] << "\n";
+			std::cout << "["<< neuro.layer << "].neuro[" << n << "].input[" << i << "] = " << neuro.inputs[i] \
+				<< " * " << neuro.weights[i] << "\n";
 		}
+		std::cout << "Neuro sum: " << neuro.sum << " activated: " << neuro.output << "\n";
 	}
 }
 
