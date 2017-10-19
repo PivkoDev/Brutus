@@ -22,6 +22,7 @@ public:
 	float x, y, z;
 	std::vector<float> weights;
 	int layer;
+	float learning_factor;
 	
 
 	// state flow
@@ -39,7 +40,9 @@ public:
 
 	// change state
 	void randomizeWeights();
+	void updateWeights();
 
 	// activation functions
 	float sigmoid(float in);
+	float sigmoidDerivate(float in);
 };

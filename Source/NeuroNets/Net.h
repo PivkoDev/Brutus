@@ -22,6 +22,7 @@ public:
 	 *	Seting up test network and learning vector. For testing purposes only.
 	 */
 	void setUpTestNetwork();
+	void setUpTestNetworkSimple();
 
 
 	/** 
@@ -44,9 +45,10 @@ public:
 	/**
 	 *	Learn process with defined steps count.
 	 *
-	 *	@param int : learn steps count
+	 *	@param int steps_count : learn steps count
+	 *	@param int step_repeat_count: how many times repeat each step
 	 */
-	void learn(int);
+	void learn(int steps_count, int step_repeat_count = 1);
 
 
 	void learnStep(int);

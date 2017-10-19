@@ -7,7 +7,8 @@ Neuro::Neuro(int layer_in, int input_count) :
 	error(EN_None),
 	sum(0.f),
 	layer(layer_in),
-	inputs_count(input_count)
+	inputs_count(input_count),
+	learning_factor(0.5f)
 {
 	for (int i = 0; i < inputs_count; i++)
 	{
@@ -54,6 +55,21 @@ Neuro::sigmoid(float in)
 	ret = 1 / (1 + exp(-in));
 	return ret;
 }
+
+float
+Neuro::sigmoidDerivate(float in)
+{
+	float ret;
+
+	/**
+	* ret = sigmoid(in) * (1 - sigmoid(in));
+	* it should look like that but sigmoid already calculated so
+	* use it
+	*/
+	ret = in * (1 - in);
+
+	return ret;
+}
 void 
 Neuro::update()
 {
@@ -71,6 +87,19 @@ Neuro::randomizeWeights()
 	for (int i = 0; i < weights.size(); i++)
 	{
 		float weight = ((rand() % 21) / 10.0f) - 1.0f;
+		//float weight = 1.0f;
 		weights[i] = weight;
+	}
+}
+
+void
+Neuro::updateWeights()
+{
+	for (int i = 0; i < weights.size(); i++)
+	{
+		float update = learning_factor * delta
+			* inputs[i] * sigmoidDerivate(output);
+
+		weights[i] = weights[i]  + update;
 	}
 }

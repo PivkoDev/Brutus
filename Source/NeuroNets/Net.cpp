@@ -31,6 +31,23 @@ Net::setUpTestNetwork()
 }
 
 void
+Net::setUpTestNetworkSimple()
+{
+	std::vector<int> net = { 1,2,1};
+
+	// cwiartki 1,2,3,4 ( 0,1,2,3 ) binarnie 00,01,10,11
+	std::vector<float> inputs_1 = { 0.f };	// 3 (2) (10)
+	std::vector<float> outputs_1 = { 1.f };
+
+	std::vector<std::vector<float>> learning_vectors;
+	learning_vectors.push_back(inputs_1);
+	learning_vectors.push_back(outputs_1);
+
+	setup(net);
+	setupLearningVector(learning_vectors);
+}
+
+void
 Net::setupLearningVector(std::vector<std::vector<float>>& lv)
 {
 	learning_vectors.clear();
@@ -92,7 +109,7 @@ Net::setup(std::vector<int>& net)
 }
  
 void
-Net::learn(int steps_count)
+Net::learn(int steps_count, int step_repeat_count)
 {	
 	if (learning_vector_validated == false)
 	{
@@ -106,7 +123,10 @@ Net::learn(int steps_count)
 	{
 		if (learn_status_ok)
 		{
-			learnStep(i);
+			for (int j = 0; j < step_repeat_count; j++)
+			{
+				learnStep(i);
+			}
 		}
 	}
 
@@ -126,7 +146,7 @@ Net::learnStep(int index)
 	int inputs_index = index * 2;
 	int outputs_index = (index * 2) + 1;
 	
-	std::cout << "learnStep(" << index << ")\n";
+	//std::cout << "learnStep(" << index << ")\n";
 
 	if (inputs_index > learning_vectors.size() - 1 ||
 		outputs_index > learning_vectors.size() - 1)
@@ -197,27 +217,27 @@ Net::learnStep(int index)
 				n_prev -= 1;
 			}
 
-			std::cout << "prev_count: " << prev_index << "\n";
+			//std::cout << "prev_count: " << prev_index << "\n";
 		}
 
 		// Neuro update main.
 		neuro.update();
 
 		// Just debug print then.
-		for (int i = 0; i < neuro.inputs_count; i++)
-		{
-			std::cout << "["<< neuro.layer << "].neuro[" << n << "].input[" << i << "] = " << neuro.inputs[i] \
-				<< " * " << neuro.weights[i] << "\n";
-		}
-		std::cout << "Neuro sum: " << neuro.sum << " activated: " << neuro.output << "\n";
+		//for (int i = 0; i < neuro.inputs_count; i++)
+		//{
+		//	std::cout << "["<< neuro.layer << "].neuro[" << n << "].input[" << i << "] = " << neuro.inputs[i] \
+		//		<< " * " << neuro.weights[i] << "\n";
+		//}
+		//std::cout << "Neuro sum: " << neuro.sum << " activated: " << neuro.output << "\n";
 	}
 
 	// backward propagation
 	int output_index = 0;
 	int output_index_rev = outputs.size() - 1;
 
-	std::cout << "\nbackward propagation\n";
-
+	//std::cout << "\nbackward propagation\n";
+	
 	for (int n = neuros.size() - 1; n >= 0; n--)
 	{
 		auto& neuro = neuros[n];
@@ -229,8 +249,8 @@ Net::learnStep(int index)
 			assert(output_index_rev >= 0 && output_index_rev < outputs.size());
 
 			neuro.delta = outputs[output_index_rev] - neuro.output;
-			output_index++;
 
+			output_index++;
 		}
 		else
 		{
@@ -260,10 +280,25 @@ Net::learnStep(int index)
 			}
 		}
 
-		std::cout << "[" << neuro.layer << "].neuro[" << n << "].delta = " << neuro.delta << "\n";
+		//std::cout << "[" << neuro.layer << "].neuro[" << n << "].delta = " << neuro.delta << "\n";
 	}
 
-	std::cout << "\n";
+	/**
+	* Weights update weight_updated = weight + update
+	* update =
+	*	learning_factor
+	*   * error  // delta, per neuro , same for all weights
+	*   * output from previus neuro  // diffrent for each weight
+	*   * derivate(output) // per neuro, same for all weights
+	*/
+	for (int n = 0; n < neuros.size(); n++)
+	{
+		auto& neuro = neuros[n];
+
+		neuro.updateWeights();
+	}
+
+	//std::cout << "\n";
 }
 
 
@@ -295,6 +330,7 @@ Net::print()
 		}
 
 		std::cout << "\n";
+		std::cout << " output = " << neuros[i].output << "\n";
 	}
 
 	std::cout << "\n";

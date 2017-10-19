@@ -58,7 +58,15 @@ int main(int argc, char **argv)
 	//serializer.deserialize(NeuralNet);
 	//NeuralNet.init();
 	NeuralNet.setUpTestNetwork();
-	NeuralNet.learn(1);
+	//NeuralNet.setUpTestNetworkSimple();
+	NeuralNet.print();
+	NeuralNet.learn(1, 1);
+	NeuralNet.print();
+	NeuralNet.learn(1, 1000);
+	NeuralNet.print();
+	NeuralNet.learn(1, 10000);
+	NeuralNet.print();
+	NeuralNet.learn(1, 100000);
 	NeuralNet.print();
 
 	glutInit(&argc, argv);
