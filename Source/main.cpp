@@ -21,7 +21,6 @@ void RenderScene(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glBindVertexArray(gameModels->GetModel("triangle1"));
-
 	glUseProgram(program);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
@@ -60,14 +59,14 @@ int main(int argc, char **argv)
 	NeuralNet.setUpTestNetwork();
 	//NeuralNet.setUpTestNetworkSimple();
 	NeuralNet.print();
-	NeuralNet.learn(1, 1);
-	NeuralNet.print();
-	NeuralNet.learn(1, 1000);
-	NeuralNet.print();
-	NeuralNet.learn(1, 10000);
-	NeuralNet.print();
-	NeuralNet.learn(1, 100000);
-	NeuralNet.print();
+	//NeuralNet.learn(1, 1);
+	//NeuralNet.print();
+	//NeuralNet.learn(1, 1000);
+	//NeuralNet.print();
+	//NeuralNet.learn(1, 10000);
+	//NeuralNet.print();
+	//NeuralNet.learn(1, 100000);
+	//NeuralNet.print();
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -79,6 +78,15 @@ int main(int argc, char **argv)
 
 	glewInit();
 	std::cout << "Using glew " << glewGetString(GLEW_VERSION) << "\n";
+
+	if (glewIsSupported("GL_VERSION_4_3"))
+	{
+		std::cout << " GLEW Version is 4.3\n ";
+	}
+	else
+	{
+		std::cout << "GLEW 4.3 not supported\n ";
+	}
 
 	Init();
 

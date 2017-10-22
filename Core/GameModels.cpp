@@ -41,13 +41,16 @@ GameModels::CreateTriangleModel(const std::string& gameModelName)
 
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(VertexFormat) * 3, &vertices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(VertexFormat) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 
+	// Layout qualifier (pipeline) : 0
 	glEnableVertexAttribArray(0);
+	// Interleaved attribute instead of separate buffers.
+	// All parameters change probabilty is equal
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)0);
-	glEnableVertexAttribArray(1);
 	
-
+	// Layout qualifier (pipeline) : 1
+	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)VEC3SIZE);
 
 
