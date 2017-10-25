@@ -125,7 +125,7 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\GameModels.cpp" />
-    <ClCompile Include="Core\ShaderLoader.cpp" />
+    <ClCompile Include="Managers\ShaderManager.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\NeuroNets\Net.cpp" />
     <ClCompile Include="Source\NeuroNets\Neuro.cpp" />
@@ -134,8 +134,8 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\GameModels.h" />
-    <ClInclude Include="Core\ShaderLoader.h" />
     <ClInclude Include="Core\VertexFormat.h" />
+    <ClInclude Include="Managers\ShaderManager.h" />
     <ClInclude Include="Source\NeuroNets\Net.h" />
     <ClInclude Include="Source\NeuroNets\Neuro.h" />
     <ClInclude Include="Source\Serializer.h" />

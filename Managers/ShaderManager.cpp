@@ -1,20 +1,35 @@
-#include "ShaderLoader.h" 
-#include<iostream>
-#include<fstream>
-#include<vector>
+#include "ShaderManager.h" 
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <map>
 
-ShaderLoader::ShaderLoader(void) {}
-ShaderLoader::~ShaderLoader(void) {}
+std::map<std::string, GLuint> ShaderManager::programs;
+
+ShaderManager::ShaderManager(void) {}
+ShaderManager::~ShaderManager(void) 
+{
+	std::map<std::string, GLuint>::iterator i;
+	for (i = programs.begin(); i != programs.end(); ++i)
+	{
+		GLuint program = i->second;
+		glDeleteProgram(program);
+	}
+	programs.clear();
+
+}
 
 std::string 
-ShaderLoader::ReadShader(char *filename)
+ShaderManager::ReadShader(const std::string& filename)
 {
 	std::string shaderCode;
 	std::ifstream file(filename, std::ios::in);
 
 	if (!file.good())
 	{
-		std::cout << "Can't read file " << filename << std::endl;
+		std::cout << "Can't read file " 
+			<< filename.c_str()
+			<< std::endl;
 		std::terminate();
 	}
 
@@ -27,12 +42,14 @@ ShaderLoader::ReadShader(char *filename)
 }
 
 GLuint 
-ShaderLoader::CreateShader(GLenum shaderType, std::string source, 
-	char* shaderName)
+ShaderManager::CreateShader(
+	GLenum shader_type, 
+	const std::string& source, 
+	const std::string& shader_name)
 {
 	int compile_result = 0;
 
-	GLuint shader = glCreateShader(shaderType);
+	GLuint shader = glCreateShader(shader_type);
 	const char *shader_code_ptr = source.c_str();
 	const int shader_code_size = source.size();
 
@@ -47,19 +64,27 @@ ShaderLoader::CreateShader(GLenum shaderType, std::string source,
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &info_log_length);
 		std::vector<char> shader_log(info_log_length);
 		glGetShaderInfoLog(shader, info_log_length, NULL, &shader_log[0]);
-		std::cout << "ERROR compiling shader: " << shaderName << std::endl << &shader_log[0] << std::endl;
+		std::cout << "ERROR compiling shader: " << shader_name.c_str()
+			<< std::endl << &shader_log[0] << std::endl;
 		return 0;
 	}
 	return shader;
 }
 
-GLuint 
-ShaderLoader::CreateProgram(char* vertexShaderFilename,
-	char* fragmentShaderFilename)
+void 
+ShaderManager::CreateProgram(
+	const std::string& shader_name,
+	const std::string& vertex_shader_filename,
+	const std::string& fragment_shader_filename)
 {
+	if (programs.find(shader_name) != programs.end())
+	{
+		return;
+	}
+
 	//read the shader files and save the code
-	std::string vertex_shader_code = ReadShader(vertexShaderFilename);
-	std::string fragment_shader_code = ReadShader(fragmentShaderFilename);
+	std::string vertex_shader_code = ReadShader(vertex_shader_filename);
+	std::string fragment_shader_code = ReadShader(fragment_shader_filename);
 
 	GLuint vertex_shader = CreateShader(GL_VERTEX_SHADER, vertex_shader_code, "vertex shader");
 	GLuint fragment_shader = CreateShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
@@ -81,7 +106,14 @@ ShaderLoader::CreateProgram(char* vertexShaderFilename,
 		std::vector<char> program_log(info_log_length);
 		glGetProgramInfoLog(program, info_log_length, NULL, &program_log[0]);
 		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
-		return 0;
+		return;
 	}
-	return program;
+	
+	programs[shader_name] = program;
+}
+
+const GLuint
+ShaderManager::GetShader(const std::string& shader_name)
+{
+	return programs.at(shader_name);
 }

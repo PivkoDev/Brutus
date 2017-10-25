@@ -22,13 +22,13 @@
     <Filter Include="Source Files\NeuroNets">
       <UniqueIdentifier>{97c1b35e-71b9-4072-b606-df59f5443464}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{26443b89-745a-4dc8-9c91-d830d0dc59bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\ShaderLoader.cpp">
-      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\GameModels.cpp">
       <Filter>Core</Filter>
@@ -45,11 +45,11 @@
     <ClCompile Include="Source\Serializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Managers\ShaderManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\ShaderLoader.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\VertexFormat.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -67,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Source\Serializer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ShaderManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

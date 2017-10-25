@@ -2,7 +2,7 @@
 #include "freeglut.h"
 #include <iostream>
 
-#include "..\Core\ShaderLoader.h"
+#include "..\Managers\ShaderManager.h"
 #include "..\Core\GameModels.h"
 
 #include "..\Source\NeuroNets\Net.h"
@@ -14,6 +14,7 @@
 
 GameModels* gameModels;
 GLuint program;
+ShaderManager* shader_manager;
 
 void RenderScene(void)
 {
@@ -40,9 +41,12 @@ void Init()
 	gameModels = new GameModels();
 	gameModels->CreateTriangleModel("triangle1");
 
-	ShaderLoader shaderLoader;
-	program = shaderLoader.CreateProgram("D:\\C\\Projekty\\Brutus\\Shaders\\VertexShader.glsl",
-		                                 "D:\\C\\Projekty\\Brutus\\Shaders\\FragmentShader.glsl");
+	shader_manager = new ShaderManager();
+	shader_manager->CreateProgram(
+		"ColorShader1",
+		"D:\\C\\Projekty\\Brutus\\Shaders\\VertexShader.glsl",
+		"D:\\C\\Projekty\\Brutus\\Shaders\\FragmentShader.glsl");
+	program = ShaderManager::GetShader("ColorShader1");
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
@@ -99,8 +103,9 @@ int main(int argc, char **argv)
 	serializer.serialize(NeuralNet);
 
 	delete gameModels;
+	delete shader_manager;
+
 	glDeleteProgram(program);
-
-
+	
 	return 0;
 }
