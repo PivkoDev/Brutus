@@ -115,5 +115,6 @@ ShaderManager::CreateProgram(
 const GLuint
 ShaderManager::GetShader(const std::string& shader_name)
 {
+
 	return programs.at(shader_name);
 }

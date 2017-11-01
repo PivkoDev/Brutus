@@ -124,8 +124,14 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\GameModels.cpp" />
+    <ClCompile Include="Core\Init\Init_GLEW.cpp" />
+    <ClCompile Include="Core\Init\Init_GLUT.cpp" />
+    <ClCompile Include="Managers\ModelsManager.cpp" />
+    <ClCompile Include="Managers\SceneManager.cpp" />
     <ClCompile Include="Managers\ShaderManager.cpp" />
+    <ClCompile Include="Rendering\Models\Model.cpp" />
+    <ClCompile Include="Rendering\Models\Quad.cpp" />
+    <ClCompile Include="Rendering\Models\Triangle.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\NeuroNets\Net.cpp" />
     <ClCompile Include="Source\NeuroNets\Neuro.cpp" />
@@ -133,9 +139,20 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Source\Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\GameModels.h" />
-    <ClInclude Include="Core\VertexFormat.h" />
+    <ClInclude Include="Core\Init\ContextInfo.h" />
+    <ClInclude Include="Core\Init\FrameBufferInfo.h" />
+    <ClInclude Include="Core\Init\IListener.h" />
+    <ClInclude Include="Core\Init\Init_GLEW.h" />
+    <ClInclude Include="Core\Init\Init_GLUT.h" />
+    <ClInclude Include="Core\Init\WindowInfo.h" />
+    <ClInclude Include="Managers\ModelsManager.h" />
+    <ClInclude Include="Managers\SceneManager.h" />
     <ClInclude Include="Managers\ShaderManager.h" />
+    <ClInclude Include="Rendering\IGameObject.h" />
+    <ClInclude Include="Rendering\Models\Model.h" />
+    <ClInclude Include="Rendering\Models\Quad.h" />
+    <ClInclude Include="Rendering\Models\Triangle.h" />
+    <ClInclude Include="Rendering\VertexFormat.h" />
     <ClInclude Include="Source\NeuroNets\Net.h" />
     <ClInclude Include="Source\NeuroNets\Neuro.h" />
     <ClInclude Include="Source\Serializer.h" />

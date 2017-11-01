@@ -25,13 +25,19 @@
     <Filter Include="Managers">
       <UniqueIdentifier>{26443b89-745a-4dc8-9c91-d830d0dc59bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Init">
+      <UniqueIdentifier>{a166f0f1-b788-4800-a8ea-f6bb80d1e07c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{c9d47b63-ef37-491c-9ee7-1f85e2440eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Models">
+      <UniqueIdentifier>{3e1cb523-5df3-4881-90c1-5f7148f605ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\GameModels.cpp">
-      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\NeuroNets\Net.cpp">
       <Filter>Source Files\NeuroNets</Filter>
@@ -48,14 +54,29 @@
     <ClCompile Include="Managers\ShaderManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Init\Init_GLEW.cpp">
+      <Filter>Core\Init</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Init\Init_GLUT.cpp">
+      <Filter>Core\Init</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\SceneManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\Models\Model.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\Models\Triangle.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ModelsManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\Models\Quad.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\VertexFormat.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\GameModels.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Source\NeuroNets\Net.h">
       <Filter>Source Files\NeuroNets</Filter>
     </ClInclude>
@@ -70,6 +91,45 @@
     </ClInclude>
     <ClInclude Include="Managers\ShaderManager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\WindowInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\ContextInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\FrameBufferInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\Init_GLEW.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\Init_GLUT.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\IListener.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\SceneManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\VertexFormat.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\IGameObject.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Models\Model.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Models\Triangle.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ModelsManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Models\Quad.h">
+      <Filter>Rendering\Models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
