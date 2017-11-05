@@ -7,49 +7,29 @@
 
 #include "NeuroNets\Net.h"
 #include "Serializer.h"
+#include "Data\Player.h"
 
 #include "Core\Init_GLUT.h"
 #include "Core\Init_GLEW.h"
 
-GLuint program;
-ShaderManager* shader_manager;
-
-void RenderScene(void)
-{
-	glClearColor(0.2, 0.2, 0.2, 1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glUseProgram(program);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
-	glutSwapBuffers();
-}
-
-void Init()
-{
-	glEnable(GL_DEPTH_TEST);
-
-	program = ShaderManager::GetShader("ColorShader1");
-
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-}
 
 int main(int argc, char **argv)
 {
 	std::cout << "Brutus v.0.1 started.\n";
 
-	// Root object
-	Net NeuralNet;
-	Serializer serializer;
+	// Logika : sieci neuronowe.
+	//Net NeuralNet;
+	//Serializer serializer;
 	//serializer.deserialize(NeuralNet);
 	//NeuralNet.init();
-	NeuralNet.setUpTestNetwork();
+	//NeuralNet.setUpTestNetwork();
 	//NeuralNet.setUpTestNetworkSimple();
-	NeuralNet.print();
+	//NeuralNet.print();
 	//NeuralNet.learn(1, 1);
 	//NeuralNet.print();
+	Player player;
 		
-
+	// Rysowanie : OpenGL
 	WindowInfo window(std::string("Brutus v.0.1"),
 				      400, 200, 800, 600, true);
 	ContextInfo context(4, 5, true);
@@ -63,6 +43,8 @@ int main(int argc, char **argv)
 
 	delete scene;
 	
+	// Sprzatanie
+
 	//serializer.serialize(NeuralNet);
 
 

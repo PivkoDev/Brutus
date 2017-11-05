@@ -28,6 +28,9 @@
     <Filter Include="Source\Rendering\Models">
       <UniqueIdentifier>{526deb91-4359-4e62-b461-c32625a5fde1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Data">
+      <UniqueIdentifier>{c28c029d-4668-4dd2-8d69-ea3decd17d4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -68,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="Source\Rendering\Models\Triangle.cpp">
       <Filter>Source\Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Data\DataProvider.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Data\Player.cpp">
+      <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\Models\Triangle.h">
       <Filter>Source\Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Data\DataProvider.h">
+      <Filter>Source\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Data\Player.h">
+      <Filter>Source\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
