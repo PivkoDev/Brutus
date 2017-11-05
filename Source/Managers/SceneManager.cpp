@@ -7,8 +7,8 @@ SceneManager::SceneManager()
 	shader_manager = new ShaderManager();
 	shader_manager->CreateProgram(
 		"ColorShader1",
-		"D:\\C\\Projekty\\Brutus\\Shaders\\VertexShader.glsl",
-		"D:\\C\\Projekty\\Brutus\\Shaders\\FragmentShader.glsl");
+		"D:\\C\\Projekty\\Brutus\\Source\\Shaders\\VertexShader.glsl",
+		"D:\\C\\Projekty\\Brutus\\Source\\Shaders\\FragmentShader.glsl");
 
 	models_manager = new ModelsManager();
 }

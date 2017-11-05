@@ -2,7 +2,7 @@
 
 #include "ShaderManager.h"
 #include "ModelsManager.h"
-#include "../Core/Init/IListener.h"
+#include "../Core/IListener.h"
 
 class SceneManager : public IListener
 {

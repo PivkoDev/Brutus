@@ -2,14 +2,14 @@
 #include "freeglut.h"
 #include <iostream>
 
-#include "..\Managers\ShaderManager.h"
-#include "..\Managers\SceneManager.h"
+#include "Managers\ShaderManager.h"
+#include "Managers\SceneManager.h"
 
-#include "..\Source\NeuroNets\Net.h"
-#include "..\Source\Serializer.h"
+#include "NeuroNets\Net.h"
+#include "Serializer.h"
 
-#include "..\Core\Init\Init_GLUT.h"
-#include "..\Core\Init\Init_GLEW.h"
+#include "Core\Init_GLUT.h"
+#include "Core\Init_GLEW.h"
 
 GLuint program;
 ShaderManager* shader_manager;
