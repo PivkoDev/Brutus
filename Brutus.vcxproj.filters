@@ -140,6 +140,15 @@
     <ClInclude Include="Source\Data\Player.h">
       <Filter>Source\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Data\StockData.h">
+      <Filter>Source\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Data\Rule.h">
+      <Filter>Source\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Data\Action.h">
+      <Filter>Source\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Log.txt" />
