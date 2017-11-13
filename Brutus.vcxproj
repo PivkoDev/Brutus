@@ -126,8 +126,11 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ClCompile Include="Source\Core\Init_GLEW.cpp" />
     <ClCompile Include="Source\Core\Init_GLUT.cpp" />
+    <ClCompile Include="Source\Data\Action.cpp" />
     <ClCompile Include="Source\Data\DataProvider.cpp" />
     <ClCompile Include="Source\Data\Player.cpp" />
+    <ClCompile Include="Source\Data\Rule.cpp" />
+    <ClCompile Include="Source\Data\StockData.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Managers\ModelsManager.cpp" />
     <ClCompile Include="Source\Managers\SceneManager.cpp" />

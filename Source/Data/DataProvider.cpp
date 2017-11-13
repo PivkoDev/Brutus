@@ -72,18 +72,51 @@ DataProvider::addData(StockData& stock_data)
 		day_data.close = std::stof(parts_last_parse[5]);
 		day_data.volume = std::stoi(parts_last_parse[6]);
 
-		stock_data.data.push_back(day_data);
+		stock_data.addData(day_data);
 	}
+}
+StockData 
+DataProvider::getData(int index)
+{
+	if (index >= 0 && index < data.size())
+	{
+		return data[index];
+	}
+	else
+	{
+		return StockData();
+	}
+}
+
+StockData
+DataProvider::getData(std::string name)
+{
+	for(StockData stock_data : data)
+	{
+		if (stock_data.name == name)
+		{
+			return stock_data;
+		}
+	}
+
+	return StockData();
+}
+
+int
+DataProvider::getDataCount()
+{
+	return data.size();
 }
 
 void
 DataProvider::printSummary()
 {
 	std::cout << "_DataProvider size :" << data.size() << std::endl;
-	if (data.size() > 0)
+	for(auto stock_data : data)
 	{
-		std::cout << " [0] name :" << data[0].name << std::endl;
-		std::cout << " [0] days :" << data[0].data.size() << std::endl;
+		
+		std::cout << " name :" << stock_data.name 
+			<< " days :" << stock_data.getDayDataCount() << std::endl;
 	}
 
 

@@ -16,10 +16,15 @@ public:
 
 class StockData
 {
-public:
-	std::string name;
 	std::vector<DayData> data;
 
+public:
+	std::string name;
+	
 	StockData() : name("") {};
+
+	DayData getDayDataReverse(int index);
+	int getDayDataCount();
+	void addData(DayData day_data);
 };
 

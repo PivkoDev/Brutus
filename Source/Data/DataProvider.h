@@ -16,7 +16,12 @@ public:
 
 	void parseFile(std::string path);
 	void parseLine(std::string line);
+
+
 	void addData(StockData& stock_data);
+	StockData getData(int index);
+	StockData getData(std::string name);
+	int getDataCount();
 
 	void printSummary();
 	

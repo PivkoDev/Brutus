@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	//NeuralNet.learn(1, 1);
 	//NeuralNet.print();
 	Player player;
-	player.play(2);
+	player.play(200);
 		
 	// Rysowanie : OpenGL
 	WindowInfo window(std::string("Brutus v.0.1"),
