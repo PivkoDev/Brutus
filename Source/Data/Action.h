@@ -23,3 +23,13 @@ public:
 	ActionBuy(std::string name_set, int amount_set);
 	void run(Player* player) override;
 };
+
+class ActionSell : public Action
+{
+	std::string name;
+	int amount;
+public:
+	ActionSell();
+	ActionSell(std::string name_set, int amount_set);
+	void run(Player* player) override;
+};

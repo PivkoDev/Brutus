@@ -16,5 +16,15 @@ Rule::run(Player* player)
 		StockData stock_data = player->data_provider.getData(i);
 
 		player->addActionBuy(stock_data.name, 10);
+
+		//player->getValue()
+	}
+
+	for (auto value : player->inventory)
+	{
+		if (value.second > 9)
+		{
+			player->addActionSell(value.first, 5);
+		}
 	}
 };

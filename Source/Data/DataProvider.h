@@ -13,7 +13,7 @@ private:
 
 public:
 	DataProvider(std::string path);
-
+	void parseDir(std::string path);
 	void parseFile(std::string path);
 	void parseLine(std::string line);
 
