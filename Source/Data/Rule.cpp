@@ -13,11 +13,12 @@ Rule::run(Player* player)
 
 	for (int i = 0; i < player->data_provider.getDataCount(); i++)
 	{
-		StockData stock_data = player->data_provider.getData(i);
+		StockData* stock_data = player->data_provider.getData(i);
 
-		player->addActionBuy(stock_data.name, 10);
-
-		//player->getValue()
+		if (stock_data != nullptr)
+		{
+			player->addActionBuy(stock_data->name, 10);
+		}
 	}
 
 	for (auto value : player->inventory)

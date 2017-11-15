@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 {
 	std::cout << "Brutus v.0.1 started.\n";
 
+	Tools::timeMeasureStart();
 	// Logika : sieci neuronowe.
 	//Net NeuralNet;
 	//Serializer serializer;
@@ -28,8 +29,11 @@ int main(int argc, char **argv)
 	//NeuralNet.learn(1, 1);
 	//NeuralNet.print();
 	Player player;
-	player.play(10);
+	Tools::timeMeasureStamp();
+	player.play(1000);
 		
+	Tools::timeMeasureStamp();
+
 	// Rysowanie : OpenGL
 	WindowInfo window(std::string("Brutus v.0.1"),
 				      400, 200, 800, 600, true);

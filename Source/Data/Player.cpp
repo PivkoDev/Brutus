@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Action.h"
+#include "../Tools.h"
 
 #include <iostream>
 
@@ -73,7 +74,10 @@ Player::printSummary()
 	float total(0);
 	for (auto inv : inventory)
 	{
-		StockData data = data_provider.getData(inv.first);
+		StockData* data = data_provider.getData(inv.first);
+
+		if (data == nullptr)
+			continue;
 
 		float cost_stock(0.f);
 		if (cost.find(inv.first) != cost.end())
@@ -81,9 +85,9 @@ Player::printSummary()
 			cost_stock = cost[inv.first];
 		}
 
-		if (inv.second >= 0 && inv.second < data.getDayDataCount())
+		if (inv.second >= 0 && inv.second < data->getDayDataCount())
 		{
-			DayData day_data = data.getDayDataReverse(current_index);
+			DayData day_data = data->getDayDataReverse(current_index);
 			float value = getValue(inv.second, day_data);
 			std::cout << " - " << inv.first << " : " << inv.second
 				<< " : " << value << " zl , "
@@ -110,11 +114,14 @@ Player::addActionSell(std::string name, int amount)
 void 
 Player::buy(std::string name, int amount)
 {
-	StockData data = data_provider.getData(name);
-	
-	if (current_index >= 0 && current_index < data.getDayDataCount())
+	StockData* data = data_provider.getData(name);
+
+	if (data == nullptr)
+		return;
+
+	if (current_index >= 0 && current_index < data->getDayDataCount())
 	{
-		DayData day_data = data.getDayDataReverse(current_index);
+		DayData day_data = data->getDayDataReverse(current_index);
 		float value = getValue(amount, day_data);
 		float com = value * comission;
 		if (com < comission_min) com = comission_min;
@@ -141,8 +148,8 @@ Player::buy(std::string name, int amount)
 
 			cash -= total;
 
-			std::cout << " buy , value:" << total << " (" << value << "+"
-				<< com << ") amount: " << amount << std::endl;
+			//std::cout << " buy , value:" << total << " (" << value << "+"
+			//	<< com << ") amount: " << amount << std::endl;
 		}
 		
 	}
@@ -151,18 +158,23 @@ Player::buy(std::string name, int amount)
 void 
 Player::sell(std::string name, int amount)
 {
-	StockData data = data_provider.getData(name);
+	StockData* data = data_provider.getData(name);
 
-	if (current_index >= 0 && current_index < data.getDayDataCount())
+	if (data == nullptr)
 	{
-		DayData day_data = data.getDayDataReverse(current_index);
+		return;
+	}
+
+	if (current_index >= 0 && current_index < data->getDayDataCount())
+	{
+		DayData day_data = data->getDayDataReverse(current_index);
 		float value = getValue(amount, day_data);
 		float com = value * comission;
 		if (com < comission_min) com = comission_min;
 		float total = value + com;
 
-		std::cout << " sell , value:" << total << " (" << value << "+"
-			<< com << ") amount: " << amount << std::endl;
+		//std::cout << " sell , value:" << total << " (" << value << "+"
+		//	<< com << ") amount: " << amount << std::endl;
 
 	}
 }

@@ -75,31 +75,31 @@ DataProvider::addData(StockData& stock_data)
 		stock_data.addData(day_data);
 	}
 }
-StockData 
+StockData* 
 DataProvider::getData(int index)
 {
 	if (index >= 0 && index < data.size())
 	{
-		return data[index];
+		return &data[index];
 	}
 	else
 	{
-		return StockData();
+		return nullptr;
 	}
 }
 
-StockData
+StockData*
 DataProvider::getData(std::string name)
 {
-	for(StockData stock_data : data)
+	for(StockData& stock_data : data)
 	{
 		if (stock_data.name == name)
 		{
-			return stock_data;
+			return &stock_data;
 		}
 	}
 
-	return StockData();
+	return nullptr;
 }
 
 int

@@ -19,8 +19,8 @@ public:
 
 
 	void addData(StockData& stock_data);
-	StockData getData(int index);
-	StockData getData(std::string name);
+	StockData* getData(int index);
+	StockData* getData(std::string name);
 	int getDataCount();
 
 	void printSummary();
