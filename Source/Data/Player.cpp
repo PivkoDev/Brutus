@@ -6,7 +6,7 @@
 
 Player::Player() : 
 	data_provider("\\Data\\mstall\\"),
-	cash(10000.0), //1000 zl na start
+	cash(1000.0), //1000 zl na start
 	comission(0.0038),
 	comission_min(5.0)
 {
@@ -18,7 +18,6 @@ Player::Player() :
 	data_provider.printSummary();
 
 	rules.push_back(Rule());
-	
 }
 
 void
@@ -31,7 +30,7 @@ Player::play(int range)
 	{
 		rocknroll();
 
-		if(i==(range-1))
+		if(i==(range-1) || i==0)
 			printSummary();
 
 		current_index--;
@@ -95,7 +94,7 @@ Player::printSummary()
 			total += value;
 		}
 	}
-	std::cout << "total : " << total << std::endl;
+	std::cout << "total : " << total << " zl" << std::endl;
 	std::cout << "--------- " << std::endl;
 }
 
@@ -175,6 +174,5 @@ Player::sell(std::string name, int amount)
 
 		//std::cout << " sell , value:" << total << " (" << value << "+"
 		//	<< com << ") amount: " << amount << std::endl;
-
 	}
 }

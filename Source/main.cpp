@@ -16,18 +16,14 @@
 int main(int argc, char **argv)
 {
 	std::cout << "Brutus v.0.1 started.\n";
-
 	Tools::timeMeasureStart();
+
 	// Logika : sieci neuronowe.
+
 	//Net NeuralNet;
 	//Serializer serializer;
 	//serializer.deserialize(NeuralNet);
-	//NeuralNet.init();
-	//NeuralNet.setUpTestNetwork();
-	//NeuralNet.setUpTestNetworkSimple();
-	//NeuralNet.print();
-	//NeuralNet.learn(1, 1);
-	//NeuralNet.print();
+
 	Player player;
 	Tools::timeMeasureStamp();
 	player.play(1000);
