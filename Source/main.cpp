@@ -6,7 +6,7 @@
 #include "Managers\SceneManager.h"
 
 #include "NeuroNets\Net.h"
-#include "Serializer.h"
+#include "Tools\Serializer.h"
 #include "Data\Player.h"
 
 #include "Core\Init_GLUT.h"
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
 	Player player;
 	Tools::timeMeasureStamp();
-	player.play(1000);
+	player.play(2000);
 		
 	Tools::timeMeasureStamp();
 

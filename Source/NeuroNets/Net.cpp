@@ -1,6 +1,6 @@
 #include "Net.h"
-#include "..\Tools.h"
-#include "..\Serializer.h"
+#include "..\Tools\Tools.h"
+#include "..\Tools\Serializer.h"
 
 Net::Net() : name("DefaultNet"), inputs_count(0), outputs_count(0)
 {

@@ -25,11 +25,10 @@ std::chrono::high_resolution_clock::time_point Tools::time_stamp = std::chrono::
 
 void
 Tools::timeMeasureStart()
-{
-	
+{	
 	time_stamp = std::chrono::high_resolution_clock::now();
 
-	std::cout << "# time measure start #" << std::endl;
+	//std::cout << "# time measure start #" << std::endl;
 }
 
 void
@@ -39,7 +38,8 @@ Tools::timeMeasureStamp(std::string msg)
 	std::chrono::duration<double> time_span = 
 		std::chrono::duration_cast<std::chrono::duration<double>>(time_stamp_2 - time_stamp);
 
-	std::cout << "# time took : " << time_span.count() << " sec. " << msg  << std::endl;
+	std::cout << "# stamp.  time took : " << time_span.count() << " sec. " << msg  << std::endl;
+
 	timeMeasureStart();
 }
 

@@ -11,8 +11,8 @@
 
 #include "Tools.h"
 
-#include "NeuroNets\Net.h"
-#include "NeuroNets\Neuro.h"
+#include "..\NeuroNets\Net.h"
+#include "..\NeuroNets\Neuro.h"
 
 
 
