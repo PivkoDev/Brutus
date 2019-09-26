@@ -4,36 +4,51 @@
 
 #include <iostream>
 
+namespace
+{
+	const float COMM_MIN(0);
+	//const float COMM_MIN(5.0);
+	const float COMM(0);
+	//const float COMM(0.0038);
+
+}
+
 Player::Player() : 
 	data_provider("\\Data\\mstall\\"),
 	cash(1000.0), //1000 zl na start
-	comission(0.0038),
-	comission_min(5.0)
+	comission(COMM),
+	comission_min(COMM_MIN)
 {
 	std::cout << "Init Player ..." << std::endl;
 
-	data_provider.parseFile("11BIT.mst");
-	data_provider.parseFile("KGHM.mst");
-	data_provider.parseFile("LCCORP.mst");
+	//data_provider.parseFile("11BIT.mst");
+	//data_provider.parseFile("KGHM.mst");
+	//data_provider.parseFile("LCCORP.mst");
+	data_provider.parseFile("VIVID.mst");
+
 	data_provider.printSummary();
 
 	rules.push_back(Rule());
+
+	// Zakres od poczatku do konca wszystkie daty.
+	range = data_provider.getRange();
 }
 
 void
-Player::play(int range)
+Player::play()
 {
-	std::cout << "Let's play ..." << std::endl;
-	current_index = range;
+	std::cout << "Let's play ... range : " << range << std::endl;
 
-	for (int i = 0; i < range; i++)
+	current_index = 0;
+
+	for (current_index = 0; current_index < range; current_index++)
 	{
 		rocknroll();
 
-		if(i==(range-1) || i==0)
+		if (current_index == (range - 1) || current_index == 0)
+		{
 			printSummary();
-
-		current_index--;
+		}
 	}
 }
 
@@ -67,34 +82,48 @@ Player::getValue(int amount, DayData& day_data)
 void
 Player::printSummary()
 {
-	std::cout << "--- " << current_index << "---" << std::endl;
-	std::cout << "kasa : " << cash << " zl " <<  std::endl;
-	std::cout << "akcje : " << std::endl;
+	StockData* data = data_provider.getData("VIVID");
+	if (data == nullptr)
+	{
+		std::cout << "brak danych" << std::endl;
+		return;
+	}
+
+	DayData current_day_data = data->getDayData(current_index);
+
+	std::cout << "--- " << current_index << " , " << current_day_data.date;
+	std::cout << " : " << cash << " zl " << "---" << std::endl;
+	//std::cout << "akcje : " << std::endl;
+
 	float total(0);
 	for (auto inv : inventory)
 	{
-		StockData* data = data_provider.getData(inv.first);
-
-		if (data == nullptr)
-			continue;
+		const std::string stock_name(inv.first);
+		const int stock_count(inv.second);
+		StockData* data = data_provider.getData(stock_name);
+		if (data == nullptr) continue;
 
 		float cost_stock(0.f);
-		if (cost.find(inv.first) != cost.end())
+		if (cost.find(stock_name) != cost.end())
 		{
-			cost_stock = cost[inv.first];
+			cost_stock = cost[stock_name];
 		}
 
-		if (inv.second >= 0 && inv.second < data->getDayDataCount())
+		if (stock_count >= 0)
 		{
-			DayData day_data = data->getDayDataReverse(current_index);
-			float value = getValue(inv.second, day_data);
-			std::cout << " - " << inv.first << " : " << inv.second
-				<< " : " << value << " zl , "
-				<< cost_stock << " zl " << day_data.date << std::endl;
+			DayData day_data = data->getDayData(current_index);
+						
+			float value = getValue(stock_count, day_data);
+
+			std::cout << " " << stock_name << " : " << stock_count << " : wartosc = " << value << " zl , koszt = "
+				      << cost_stock << " zl " << std::endl;
+
 			total += value;
 		}
 	}
-	std::cout << "total : " << total << " zl" << std::endl;
+
+	std::cout << "akcje total : " << total << " zl" << std::endl;
+	std::cout << "akcje + kasa : " << (total + cash) << " zl" << std::endl;
 	std::cout << "--------- " << std::endl;
 }
 
@@ -120,7 +149,7 @@ Player::buy(std::string name, int amount)
 
 	if (current_index >= 0 && current_index < data->getDayDataCount())
 	{
-		DayData day_data = data->getDayDataReverse(current_index);
+		DayData day_data = data->getDayData(current_index);
 		float value = getValue(amount, day_data);
 		float com = value * comission;
 		if (com < comission_min) com = comission_min;

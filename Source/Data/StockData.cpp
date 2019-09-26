@@ -10,6 +10,17 @@ StockData::getDayDataReverse(int index)
 	}
 }
 
+DayData
+StockData::getDayData(int index)
+{
+	if (index >= 0 && index < data.size() )
+	{
+		return data[index];
+	}
+
+	return DayData();
+}
+
 void
 StockData::addData(DayData day_data)
 {

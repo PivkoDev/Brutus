@@ -12,27 +12,9 @@
 #include "Core\Init_GLUT.h"
 #include "Core\Init_GLEW.h"
 
-
-int main(int argc, char **argv)
+void renderOpenGL()
 {
-	std::cout << "Brutus v.0.1 started.\n";
-	Tools::timeMeasureStart();
-
-	// Logika : sieci neuronowe.
-
-	//Net NeuralNet;
-	//Serializer serializer;
-	//serializer.deserialize(NeuralNet);
-
-	Player player;
-	Tools::timeMeasureStamp();
-	player.play(2000);
-		
-	Tools::timeMeasureStamp();
-
-	// Rysowanie : OpenGL
-	WindowInfo window(std::string("Brutus v.0.1"),
-				      400, 200, 800, 600, true);
+	WindowInfo window(std::string("Brutus v.0.1"), 400, 200, 800, 600, true);
 	ContextInfo context(4, 5, true);
 	FramebufferInfo frameBufferInfo(true, true, true, true);
 	Init_GLUT::init(window, context, frameBufferInfo);
@@ -43,6 +25,27 @@ int main(int argc, char **argv)
 	Init_GLUT::run();
 
 	delete scene;
+}
+
+
+int main(int argc, char **argv)
+{
+	std::cout << "Brutus v.0.1 started.\n";
+	Tools::timeMeasureStart();
+
+	// Logika : sieci neuronowe.
+	//Net NeuralNet;
+	//Serializer serializer;
+	//serializer.deserialize(NeuralNet);
+
+	Player player;
+	Tools::timeMeasureStamp();
+
+	player.play();
+	Tools::timeMeasureStamp();
+
+	// Rysowanie : OpenGL
+	renderOpenGL();
 	
 	// Sprzatanie
 

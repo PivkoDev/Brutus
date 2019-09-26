@@ -42,7 +42,7 @@ DataProvider::parseFile(std::string path)
 		line_index++;
 	}
 
-	data.push_back(stock_data);
+	data_all_stocks.push_back(stock_data);
 }
 
 void
@@ -78,9 +78,9 @@ DataProvider::addData(StockData& stock_data)
 StockData* 
 DataProvider::getData(int index)
 {
-	if (index >= 0 && index < data.size())
+	if (index >= 0 && index < data_all_stocks.size())
 	{
-		return &data[index];
+		return &data_all_stocks[index];
 	}
 	else
 	{
@@ -91,7 +91,7 @@ DataProvider::getData(int index)
 StockData*
 DataProvider::getData(std::string name)
 {
-	for(StockData& stock_data : data)
+	for(StockData& stock_data : data_all_stocks)
 	{
 		if (stock_data.name == name)
 		{
@@ -105,19 +105,38 @@ DataProvider::getData(std::string name)
 int
 DataProvider::getDataCount()
 {
-	return data.size();
+	return data_all_stocks.size();
 }
 
 void
 DataProvider::printSummary()
 {
-	std::cout << "_DataProvider size :" << data.size() << std::endl;
-	for(auto stock_data : data)
+	std::cout << "_DataProvider size :" << data_all_stocks.size() << std::endl;
+
+	for(auto stock_data : data_all_stocks)
 	{
+		DayData first_day_data = stock_data.getDayData(0);
+		
+		const int last_day_index = stock_data.getDayDataCount() - 1;
+		DayData last_day_data = stock_data.getDayData(last_day_index);
 		
 		std::cout << " name :" << stock_data.name 
-			<< " days :" << stock_data.getDayDataCount() << std::endl;
+			<< " days :" << stock_data.getDayDataCount() << std::endl
+			<< " first day : " << first_day_data.date << std::endl
+			<< " last day : " << last_day_data.date << std::endl;
+	}
+}
+
+int
+DataProvider::getRange()
+{
+	int max_range(0);
+	
+	// TODO : narazie zakres to pierwsze akcje calosc
+	if (data_all_stocks.size() > 0)
+	{
+		max_range = data_all_stocks.back().getDayDataCount();
 	}
 
-
+	return max_range;
 }
