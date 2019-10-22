@@ -24,6 +24,7 @@ public:
 	StockData() : name("") {};
 
 	DayData getDayDataReverse(int index);
+	DayData getDayData(int index);
 	int getDayDataCount();
 	void addData(DayData day_data);
 };

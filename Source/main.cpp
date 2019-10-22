@@ -12,6 +12,8 @@
 #include "Core\Init_GLUT.h"
 #include "Core\Init_GLEW.h"
 
+#include "framework.h"
+
 void renderOpenGL()
 {
 	WindowInfo window(std::string("Brutus v.0.1"), 400, 200, 800, 600, true);
@@ -32,6 +34,8 @@ int main(int argc, char **argv)
 {
 	std::cout << "Brutus v.0.1 started.\n";
 	Tools::timeMeasureStart();
+
+	remind_init();
 
 	// Logika : sieci neuronowe.
 	//Net NeuralNet;

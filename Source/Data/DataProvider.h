@@ -8,7 +8,7 @@ class DataProvider
 {
 private:
 	std::string data_path;
-	std::vector<StockData> data;
+	std::vector<StockData> data_all_stocks;
 	std::vector<std::string> parts_last_parse;
 
 public:
@@ -24,5 +24,7 @@ public:
 	int getDataCount();
 
 	void printSummary();
+
+	int getRange();
 	
 };

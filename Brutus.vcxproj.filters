@@ -165,4 +165,7 @@
   <ItemGroup>
     <Text Include="Log.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

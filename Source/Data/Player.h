@@ -14,6 +14,7 @@ private:
 	
 	float cash;
 	int current_index;
+	int range;
 	std::vector<Rule> rules;
 	std::vector<std::unique_ptr<Action>> actions;
 	std::map<std::string, float> cost;
@@ -27,7 +28,7 @@ public:
 	DataProvider data_provider;
 
 	// logika
-	void play(int range=0);
+	void play();
 	void rocknroll();
 	int getCurrentIndex() { return current_index; };
 
