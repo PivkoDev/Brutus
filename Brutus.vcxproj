@@ -77,11 +77,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\ReMind\src\;$(BOOST_ROOT);D:\C\Externals\glew\include\GL\;D:\C\Externals\freeglut\include\GL;D:\C\Externals\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ReMind\src\;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(BOOST_ROOT)\stage\lib;D:\C\Externals\freeglut\lib\;Debug;D:\C\Externals\glew\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32d.lib;ReMind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)\stage\lib;Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ReMind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d  "D:\C\Externals\Freeglut\bin\Debug\*.dll" "$(OutDir)"
@@ -107,13 +107,13 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\C\Externals\glm;D:\C\Externals\freeglut\include\GL;D:\C\Externals\glew\include\GL\;../ReMind/src/;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../ReMind/src/;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\C\Externals\glew\lib\Release\Win32;D:\C\Externals\freeglut\lib\;Release;$(BOOST_ROOT)\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;ReMind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Release;$(BOOST_ROOT)\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ReMind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,47 +131,25 @@ xcopy /y /d  "D:\C\Externals\glew\bin\Debug\Win32\*.dll" "$(OutDir)"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Core\Init_GLEW.cpp" />
-    <ClCompile Include="Source\Core\Init_GLUT.cpp" />
     <ClCompile Include="Source\Data\Action.cpp" />
     <ClCompile Include="Source\Data\DataProvider.cpp" />
     <ClCompile Include="Source\Data\Player.cpp" />
     <ClCompile Include="Source\Data\Rule.cpp" />
     <ClCompile Include="Source\Data\StockData.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Managers\ModelsManager.cpp" />
-    <ClCompile Include="Source\Managers\SceneManager.cpp" />
-    <ClCompile Include="Source\Managers\ShaderManager.cpp" />
     <ClCompile Include="Source\NeuroNets\Net.cpp" />
     <ClCompile Include="Source\NeuroNets\Neuro.cpp" />
-    <ClCompile Include="Source\Rendering\Models\Model.cpp" />
-    <ClCompile Include="Source\Rendering\Models\Quad.cpp" />
-    <ClCompile Include="Source\Rendering\Models\Triangle.cpp" />
     <ClCompile Include="Source\Tools\Serializer.cpp" />
     <ClCompile Include="Source\Tools\Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core\ContextInfo.h" />
-    <ClInclude Include="Source\Core\FrameBufferInfo.h" />
-    <ClInclude Include="Source\Core\IListener.h" />
-    <ClInclude Include="Source\Core\Init_GLEW.h" />
-    <ClInclude Include="Source\Core\Init_GLUT.h" />
-    <ClInclude Include="Source\Core\WindowInfo.h" />
     <ClInclude Include="Source\Data\Action.h" />
     <ClInclude Include="Source\Data\DataProvider.h" />
     <ClInclude Include="Source\Data\Rule.h" />
     <ClInclude Include="Source\Data\StockData.h" />
     <ClInclude Include="Source\Data\Player.h" />
-    <ClInclude Include="Source\Managers\ModelsManager.h" />
-    <ClInclude Include="Source\Managers\SceneManager.h" />
-    <ClInclude Include="Source\Managers\ShaderManager.h" />
     <ClInclude Include="Source\NeuroNets\Net.h" />
     <ClInclude Include="Source\NeuroNets\Neuro.h" />
-    <ClInclude Include="Source\Rendering\IGameObject.h" />
-    <ClInclude Include="Source\Rendering\Models\Model.h" />
-    <ClInclude Include="Source\Rendering\Models\Quad.h" />
-    <ClInclude Include="Source\Rendering\Models\Triangle.h" />
-    <ClInclude Include="Source\Rendering\VertexFormat.h" />
     <ClInclude Include="Source\Tools\Serializer.h" />
     <ClInclude Include="Source\Tools\Tools.h" />
   </ItemGroup>

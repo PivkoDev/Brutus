@@ -1,33 +1,13 @@
-#include "glew.h"
-#include "freeglut.h"
 #include <iostream>
-
-#include "Managers\ShaderManager.h"
-#include "Managers\SceneManager.h"
 
 #include "NeuroNets\Net.h"
 #include "Tools\Serializer.h"
 #include "Data\Player.h"
 
-#include "Core\Init_GLUT.h"
-#include "Core\Init_GLEW.h"
 
 #include "framework.h"
 
-void renderOpenGL()
-{
-	WindowInfo window(std::string("Brutus v.0.1"), 400, 200, 800, 600, true);
-	ContextInfo context(4, 5, true);
-	FramebufferInfo frameBufferInfo(true, true, true, true);
-	Init_GLUT::init(window, context, frameBufferInfo);
-	Init_GLEW::Init();
 
-	IListener* scene = new SceneManager();
-	Init_GLUT::setListener(scene);
-	Init_GLUT::run();
-
-	delete scene;
-}
 
 
 int main(int argc, char **argv)
@@ -49,7 +29,7 @@ int main(int argc, char **argv)
 	Tools::timeMeasureStamp();
 
 	// Rysowanie : OpenGL
-	renderOpenGL();
+	remind_render();
 	
 	// Sprzatanie
 

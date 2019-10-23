@@ -16,18 +16,6 @@
     <Filter Include="Source\NeuroNets">
       <UniqueIdentifier>{97c1b35e-71b9-4072-b606-df59f5443464}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Core">
-      <UniqueIdentifier>{510e8564-308b-4e8d-a7c5-8f4e4fdcc4e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Managers">
-      <UniqueIdentifier>{02a96517-82c0-469f-9404-9073c8f0fdc3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Rendering">
-      <UniqueIdentifier>{a76ccbad-7046-4f88-a6b0-90b20d269ac0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Rendering\Models">
-      <UniqueIdentifier>{526deb91-4359-4e62-b461-c32625a5fde1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Data">
       <UniqueIdentifier>{c28c029d-4668-4dd2-8d69-ea3decd17d4a}</UniqueIdentifier>
     </Filter>
@@ -44,30 +32,6 @@
     </ClCompile>
     <ClCompile Include="Source\NeuroNets\Neuro.cpp">
       <Filter>Source\NeuroNets</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\Init_GLEW.cpp">
-      <Filter>Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\Init_GLUT.cpp">
-      <Filter>Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Managers\ModelsManager.cpp">
-      <Filter>Source\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Managers\SceneManager.cpp">
-      <Filter>Source\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Managers\ShaderManager.cpp">
-      <Filter>Source\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\Models\Model.cpp">
-      <Filter>Source\Rendering\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\Models\Quad.cpp">
-      <Filter>Source\Rendering\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\Models\Triangle.cpp">
-      <Filter>Source\Rendering\Models</Filter>
     </ClCompile>
     <ClCompile Include="Source\Data\DataProvider.cpp">
       <Filter>Source\Data</Filter>
@@ -97,48 +61,6 @@
     </ClInclude>
     <ClInclude Include="Source\NeuroNets\Neuro.h">
       <Filter>Source\NeuroNets</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\ContextInfo.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\FrameBufferInfo.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\IListener.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\Init_GLEW.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\Init_GLUT.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\WindowInfo.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Managers\ModelsManager.h">
-      <Filter>Source\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Managers\SceneManager.h">
-      <Filter>Source\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Managers\ShaderManager.h">
-      <Filter>Source\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\IGameObject.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\VertexFormat.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\Models\Model.h">
-      <Filter>Source\Rendering\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\Models\Quad.h">
-      <Filter>Source\Rendering\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\Models\Triangle.h">
-      <Filter>Source\Rendering\Models</Filter>
     </ClInclude>
     <ClInclude Include="Source\Data\DataProvider.h">
       <Filter>Source\Data</Filter>
