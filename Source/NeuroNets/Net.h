@@ -13,18 +13,23 @@ class Net
 {
 	
 public:
+	/**
+	 *	Constructor.
+	 */
 	Net();
+
+	/**
+	 *	Destructor.
+	 */
 	~Net();
-	
-	/* Interface */
-	
+		
 	/** 
-	 *	Seting up test network and learning vector. For testing purposes only.
+	 *	Seting up test network and learning vector. 
+	 *  For testing purposes only.
 	 */
 	void setUpTestNetwork();
 	void setUpTestNetworkSimple();
-
-
+	
 	/** 
 	 *	Setting up learning vector. 
 	 *

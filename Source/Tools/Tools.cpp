@@ -1,8 +1,9 @@
 #include "Tools.h"
 #include <iostream>
 
-void Tools::splitString(const std::string& input, std::vector<std::string>& out, 
-						const std::string delim)
+void 
+Tools::splitString(const std::string& input, std::vector<std::string>& out, 
+				   const std::string delim)
 {
 	auto i = 0;
 	auto pos = input.find(delim);
@@ -42,5 +43,3 @@ Tools::timeMeasureStamp(std::string msg)
 
 	timeMeasureStart();
 }
-
-

@@ -15,7 +15,6 @@
 #include "..\NeuroNets\Neuro.h"
 
 
-
 class Serializer
 {
 

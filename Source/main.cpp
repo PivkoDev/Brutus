@@ -1,14 +1,10 @@
 #include <iostream>
 
+#include "framework.h"
+
 #include "NeuroNets\Net.h"
 #include "Tools\Serializer.h"
 #include "Data\Player.h"
-
-
-#include "framework.h"
-
-
-
 
 int main(int argc, char **argv)
 {
@@ -17,7 +13,7 @@ int main(int argc, char **argv)
 
 	remind_init();
 
-	// Logika : sieci neuronowe.
+	// Disabled : neural nets.
 	//Net NeuralNet;
 	//Serializer serializer;
 	//serializer.deserialize(NeuralNet);
@@ -28,13 +24,12 @@ int main(int argc, char **argv)
 	player.play();
 	Tools::timeMeasureStamp();
 
-	// Rysowanie : OpenGL
+	// Rendering : OpenGL
 	remind_render();
 	
-	// Sprzatanie
+	// Cleaning.
 
 	//serializer.serialize(NeuralNet);
-
-
+	
 	return 0;
 }

@@ -83,7 +83,7 @@ Net::setup(std::vector<int>& net)
 
 	layers_count = net.size();
 
-	for (int layer=0; layer<net.size(); layer++ )
+	for (size_t layer=0; layer<net.size(); layer++ )
 	{
 		int count = net[layer];
 		int input_count = 1;
@@ -143,8 +143,8 @@ Net::learn(int steps_count, int step_repeat_count)
 void
 Net::learnStep(int index)
 {
-	int inputs_index = index * 2;
-	int outputs_index = (index * 2) + 1;
+	size_t inputs_index = index * 2;
+	size_t outputs_index = (index * 2) + 1;
 	
 	//std::cout << "learnStep(" << index << ")\n";
 
@@ -168,7 +168,7 @@ Net::learnStep(int index)
 	}
 
 	// forward propagation
-	for (int n = 0; n < neuros.size(); n++)
+	for (size_t n = 0; n < neuros.size(); n++)
 	{
 		auto& neuro = neuros[n];
 	
@@ -192,8 +192,8 @@ Net::learnStep(int index)
 			// go through previous layer neuros
 			int n_prev = n - 1;
 			int layer_prev = neuro.layer;
-			int prev_index = 0;
-			int prev_index_reversed = 0;
+			size_t prev_index = 0;
+			size_t prev_index_reversed = 0;
 
 			while (n_prev >= 0 && layer_prev >= (neuro.layer-1) )
 			{
@@ -233,8 +233,8 @@ Net::learnStep(int index)
 	}
 
 	// backward propagation
-	int output_index = 0;
-	int output_index_rev = outputs.size() - 1;
+	size_t output_index = 0;
+	size_t output_index_rev = outputs.size() - 1;
 
 	//std::cout << "\nbackward propagation\n";
 	
@@ -255,7 +255,7 @@ Net::learnStep(int index)
 		else
 		{
 			// go through next layer neuros
-			int n_next = n + 1;
+			size_t n_next = n + 1;
 			int layer_next = neuro.layer;
 			int next_index = 0;
 		
@@ -267,7 +267,7 @@ Net::learnStep(int index)
 				auto& neuro_next = neuros[n_next];
 				layer_next = neuro_next.layer;
 
-				int weight_index = 0;
+				size_t weight_index = 0;
 
 				if (neuro_next.layer == (neuro.layer + 1))
 				{
@@ -291,7 +291,7 @@ Net::learnStep(int index)
 	*   * output from previus neuro  // diffrent for each weight
 	*   * derivate(output) // per neuro, same for all weights
 	*/
-	for (int n = 0; n < neuros.size(); n++)
+	for (size_t n = 0; n < neuros.size(); n++)
 	{
 		auto& neuro = neuros[n];
 
@@ -313,14 +313,14 @@ Net::print()
 	std::cout << outputs_count;
 	std::cout << "\n";
 
-	for (int i = 0; i < neuros.size(); i++)
+	for (size_t i = 0; i < neuros.size(); i++)
 	{
 		std::cout << i;
 		std::cout << ":";
 		std::cout << neuros[i].layer;
 		std::cout << ":";
 
-		for (int w=0; w < neuros[i].weights.size(); w++)
+		for (size_t w=0; w < neuros[i].weights.size(); w++)
 		{
 			std::cout << "w[";
 			std::cout << w;
