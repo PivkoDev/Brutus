@@ -12,6 +12,12 @@ DataProvider::DataProvider(std::string path)
 }
 
 void 
+DataProvider::parseDir(std::string path)
+{
+
+}
+
+void 
 DataProvider::parseFile(std::string path)
 {
 	std::string total_path = data_path + path;
@@ -75,6 +81,7 @@ DataProvider::addData(StockData& stock_data)
 		stock_data.addData(day_data);
 	}
 }
+
 StockData* 
 DataProvider::getData(int index)
 {

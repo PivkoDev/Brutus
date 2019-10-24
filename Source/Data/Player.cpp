@@ -1,8 +1,8 @@
+#include <iostream>
+
 #include "Player.h"
 #include "Action.h"
 #include "..\Tools\Tools.h"
-
-#include <iostream>
 
 namespace
 {
@@ -10,7 +10,6 @@ namespace
 	//const float COMM_MIN(5.0);
 	const float COMM(0);
 	//const float COMM(0.0038);
-
 }
 
 Player::Player() : 
