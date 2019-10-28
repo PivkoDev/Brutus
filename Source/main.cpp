@@ -14,11 +14,11 @@ int main(int argc, char **argv)
 	remind_init();
 
 	// Disabled : neural nets.
-	//Net NeuralNet;
-	//Serializer serializer;
-	//serializer.deserialize(NeuralNet);
+	Net neural_net;
+	Serializer serializer;
+	serializer.deserialize(neural_net);
 
-	Player player;
+	Player player(neural_net);
 	Tools::timeMeasureStamp();
 
 	player.play();
@@ -28,8 +28,7 @@ int main(int argc, char **argv)
 	remind_render();
 	
 	// Cleaning.
-
-	//serializer.serialize(NeuralNet);
+	serializer.serialize(neural_net);
 	
 	return 0;
 }

@@ -12,7 +12,7 @@ namespace
 	//const float COMM(0.0038);
 }
 
-Player::Player() : 
+Player::Player(Net& neural_net):
 	data_provider("\\Data\\mstall\\"),
 	cash(1000.0), //1000 zl na start
 	comission(COMM),
@@ -27,7 +27,7 @@ Player::Player() :
 
 	data_provider.printSummary();
 
-	rules.push_back(Rule());
+	rules.push_back(Rule(neural_net));
 
 	// Zakres od poczatku do konca wszystkie daty.
 	range = data_provider.getRange();

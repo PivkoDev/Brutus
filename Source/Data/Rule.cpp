@@ -1,6 +1,14 @@
 #include "Rule.h"
 #include "Player.h"
 
+Rule::Rule(Net& neural_net)
+{
+	std::cout << "Rule() ctor " << std::endl;
+	std::cout << "neural_net : ";
+	neural_net.print();
+	std::cout << std::endl;
+}
+
 void 
 Rule::run(Player* player) 
 { 

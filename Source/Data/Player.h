@@ -3,6 +3,7 @@
 #include "DataProvider.h"
 #include "Rule.h"
 #include "Action.h"
+#include "../NeuroNets/Net.h"
 #include <vector>
 #include <memory>
 
@@ -22,7 +23,7 @@ private:
 	const float comission_min;
 
 public:
-	Player();
+	Player(Net& neural_net);
 
 public:
 	DataProvider data_provider;

@@ -22,6 +22,9 @@
     <Filter Include="Source\Tools">
       <UniqueIdentifier>{aaa60776-48eb-4165-9b0b-c77bdfccaefb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\NewFilter1">
+      <UniqueIdentifier>{ea1aa348-4091-41be-9ec9-31781183e6c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="Source\Tools\Tools.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Source\NeuroNets\Decision.cpp">
+      <Filter>Source\NeuroNets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\NeuroNets\Net.h">
@@ -82,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="Source\Tools\Tools.h">
       <Filter>Source\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NeuroNets\Decision.h">
+      <Filter>Source\NeuroNets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
