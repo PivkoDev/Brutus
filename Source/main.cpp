@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	std::cout << "Brutus v.0.1 started.\n";
 	Tools::timeMeasureStart();
 
-	remind_init();
+	//remind_init();
 
 	// Disabled : neural nets.
 	Net neural_net;
@@ -25,10 +25,12 @@ int main(int argc, char **argv)
 	Tools::timeMeasureStamp();
 
 	// Rendering : OpenGL
-	remind_render();
+	//remind_render();
 	
 	// Cleaning.
 	serializer.serialize(neural_net);
+
+	system("pause");
 	
 	return 0;
 }

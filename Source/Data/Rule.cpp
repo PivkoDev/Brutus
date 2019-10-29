@@ -1,12 +1,10 @@
 #include "Rule.h"
 #include "Player.h"
 
-Rule::Rule(Net& neural_net)
+Rule::Rule(Net& net) : neural_net(net)
 {
-	std::cout << "Rule() ctor " << std::endl;
-	std::cout << "neural_net : ";
+	std::cout << "Rule() ctor neural_net:" << std::endl;
 	neural_net.print();
-	std::cout << std::endl;
 }
 
 void 

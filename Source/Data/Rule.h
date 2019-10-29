@@ -8,8 +8,9 @@ class Player;
 class Rule
 {
 	Decision decision;
+	Net& neural_net;
 
 public:
-	Rule(Net& neural_net);
+	Rule(Net& net);
 	void run(Player* player);
 };

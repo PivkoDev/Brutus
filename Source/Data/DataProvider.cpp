@@ -48,6 +48,8 @@ DataProvider::parseFile(std::string path)
 		line_index++;
 	}
 
+	stock_data.sort();
+
 	data_all_stocks.push_back(stock_data);
 }
 
@@ -128,8 +130,8 @@ DataProvider::printSummary()
 		DayData last_day_data = stock_data.getDayData(last_day_index);
 		
 		std::cout << " name :" << stock_data.name 
-			<< " days :" << stock_data.getDayDataCount() << std::endl
-			<< " first day : " << first_day_data.date << std::endl
+			<< " days :" << stock_data.getDayDataCount()
+			<< " first day : " << first_day_data.date
 			<< " last day : " << last_day_data.date << std::endl;
 	}
 }

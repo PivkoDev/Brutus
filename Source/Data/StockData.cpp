@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "StockData.h"
 
 DayData
@@ -31,4 +33,23 @@ int
 StockData::getDayDataCount()
 {
 	return data.size();
+}
+
+void
+StockData::sort()
+{
+	data_sorted.clear();
+
+	for (auto& day_data : data)
+	{
+		int date_as_int = stoi(day_data.date);
+
+		data_sorted[date_as_int] = day_data;
+	}
+
+	auto last_element = data_sorted.end();
+	last_element--;
+
+	std::cout << "sort stock : " << name << " : size : " << data_sorted.size() << " ";
+	std::cout << "min : " << data_sorted.begin()->first << " max : " << last_element->first << std::endl;
 }

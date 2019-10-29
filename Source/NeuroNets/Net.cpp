@@ -303,7 +303,7 @@ Net::learnStep(int index)
 
 
 void
-Net::print()
+Net::print(int level)
 {
 	std::cout << "Neuros total: ";
 	std::cout << neuros.size();
@@ -312,6 +312,8 @@ Net::print()
 	std::cout << " , outputs: ";
 	std::cout << outputs_count;
 	std::cout << "\n";
+
+	if (level < 1) return;
 
 	for (size_t i = 0; i < neuros.size(); i++)
 	{

@@ -21,8 +21,8 @@ Player::Player(Net& neural_net):
 	std::cout << "Init Player ..." << std::endl;
 
 	//data_provider.parseFile("11BIT.mst");
-	//data_provider.parseFile("KGHM.mst");
-	//data_provider.parseFile("LCCORP.mst");
+	data_provider.parseFile("KGHM.mst");
+	data_provider.parseFile("LCCORP.mst");
 	data_provider.parseFile("VIVID.mst");
 
 	data_provider.printSummary();

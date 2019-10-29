@@ -57,7 +57,7 @@ public:
 
 
 	void learnStep(int);
-	void print();
+	void print(int level=0);
 
 	// input data
 	std::vector<std::vector<float>> learning_vectors;
