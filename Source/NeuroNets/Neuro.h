@@ -12,36 +12,30 @@ enum ErrorNeuro
 class Neuro
 {
 	
-
 public:
 	Neuro(int layer_in=0, int input_count=0);
 	~Neuro();
 
-	// state persistent
+	void randomizeWeights();
+	void update();
+	void updateWeights();
+
 	int inputs_count;
 	float x, y, z;
 	std::vector<float> weights;
 	int layer;
 	float learning_factor;
-	
-
-	// state flow
-	float sum;
+	std::vector<float> inputs;
 	float output;
 	float delta;
-	std::vector<float> inputs;
 
+private:
 	ErrorNeuro error;
+	float sum;
 
-	// flow
 	void activate();
 	void sumarize();
-	void update();
-
-	// change state
-	void randomizeWeights();
-	void updateWeights();
-
+	
 	// activation functions
 	float sigmoid(float in);
 	float sigmoidDerivate(float in);

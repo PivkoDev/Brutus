@@ -12,8 +12,7 @@ int main(int argc, char **argv)
 	Tools::timeMeasureStart();
 
 	//remind_init();
-
-	// Disabled : neural nets.
+	
 	Net neural_net;
 	Serializer serializer;
 	serializer.deserialize(neural_net);
@@ -24,10 +23,8 @@ int main(int argc, char **argv)
 	player.play();
 	Tools::timeMeasureStamp();
 
-	// Rendering : OpenGL
 	//remind_render();
 	
-	// Cleaning.
 	serializer.serialize(neural_net);
 
 	system("pause");

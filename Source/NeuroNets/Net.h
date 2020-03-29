@@ -59,15 +59,18 @@ public:
 	void learnStep(int);
 	void print(int level=0);
 
+private:
 	// input data
 	std::vector<std::vector<float>> learning_vectors;
 
-	// state
+	// state - serializable
+public:
 	std::string name;
 	std::vector<Neuro> neuros;
 	int inputs_count;
 	int outputs_count;
 
+private:
 	// non persistent
 	bool learning_vector_validated;
 	bool learn_status_ok;
