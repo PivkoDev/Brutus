@@ -45,10 +45,7 @@ namespace boost {
 		template<class Archive>
 		void serialize(Archive& ar, Net& net, const unsigned int version)
 		{
-			ar & net.name;
 			ar & net.neuros;
-			ar & net.inputs_count;
-			ar & net.outputs_count;
 		}
 
 		template<class Archive>

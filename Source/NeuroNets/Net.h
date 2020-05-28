@@ -65,12 +65,18 @@ private:
 
 	// state - serializable
 public:
-	std::string name;
+	
 	std::vector<Neuro> neuros;
+
+	int getInputCount() { return inputs_count; };
+	int getOutputCount() { return outputs_count; };
+	
+
+private:
+	std::string name;
 	int inputs_count;
 	int outputs_count;
 
-private:
 	// non persistent
 	bool learning_vector_validated;
 	bool learn_status_ok;

@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Brutus", "Brutus.vcxproj", "{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BrutusTests", "BrutusTests\BrutusTests.vcxproj", "{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A} = {0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReMind", "..\ReMind\ReMind.vcxproj", "{A0DB4FD4-8B0E-40AB-8AC1-60A1AFC0B61D}"
 EndProject

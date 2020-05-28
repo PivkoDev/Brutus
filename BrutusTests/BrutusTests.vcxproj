@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BrutusTests.cpp" />
+    <ClCompile Include="Source\NeuroNets\TestNet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
