@@ -18,7 +18,7 @@ public:
 	void parseLine(std::string line);
 
 	void addData(StockData& stock_data);
-	StockData* getData(int index);
+	StockData* getData(size_t index);
 	StockData* getData(std::string name);
 	int getDataCount();
 

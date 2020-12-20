@@ -16,6 +16,9 @@ public:
 	float low;
 	float close;
 	int volume;
+
+	DayData::DayData() : date{ "" }, open{ 0.f }, high{ 0.f }, low{ 0.f }, close{ 0.f }, volume{ 0 } {};
+
 };
 
 /**
@@ -41,8 +44,8 @@ public:
 	
 	StockData() : name("") {};
 
-	DayData getDayDataReverse(int index);
-	DayData getDayData(int index);
+	DayData getDayDataReverse(size_t index);
+	DayData getDayData(size_t index);
 	int getDayDataCount();
 	void addData(DayData day_data);
 	

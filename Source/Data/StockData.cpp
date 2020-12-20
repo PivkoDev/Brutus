@@ -3,17 +3,19 @@
 #include "StockData.h"
 
 DayData
-StockData::getDayDataReverse(int index)
+StockData::getDayDataReverse(size_t index)
 {
-	int index_from_end = data.size() - 1 - index;
-	if (index_from_end<data.size() && index_from_end>=0)
+	auto index_from_end = data.size() - 1 - index;
+	if (index_from_end < data.size() && index_from_end >= 0)
 	{
 		return data[index_from_end];
 	}
+
+	return DayData();
 }
 
 DayData
-StockData::getDayData(int index)
+StockData::getDayData(size_t index)
 {
 	if (index >= 0 && index < data.size() )
 	{

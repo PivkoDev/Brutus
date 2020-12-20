@@ -4,11 +4,16 @@
 #include <iostream>
 
 Neuro::Neuro(int layer_in, int input_count) : 
-	error(EN_None),
-	sum(0.f),
-	layer(layer_in),
-	inputs_count(input_count),
-	learning_factor(0.5f)
+	error{ ErrorNeuro::EN_None },
+	sum{ 0.f },
+	layer{ layer_in },
+	inputs_count{ input_count },
+	x{ 0.f },
+	y{ 0.f },
+	z{ 0.f },
+	learning_factor{ 0.5f },
+	delta{ 0.f },
+	output{ 0.f }
 {
 	for (int i = 0; i < inputs_count; i++)
 	{
@@ -28,13 +33,13 @@ Neuro::sumarize()
 {
 	if (weights.size() != inputs.size())
 	{
-		error = EN_InputNotMatchWeights;
+		error = ErrorNeuro::EN_InputNotMatchWeights;
 		return;
 	}
 	
 	sum = 0.f;
 
-	for (int index = 0; index < weights.size(); index++)
+	for (size_t index = 0; index < weights.size(); index++)
 	{
 		sum += inputs[index] * weights[index];
 	}
@@ -73,9 +78,9 @@ Neuro::sigmoidDerivate(float in)
 void 
 Neuro::update()
 {
-	error = EN_None;
+	error = ErrorNeuro::EN_None;
 	sumarize();
-	if (error == EN_None)
+	if (error == ErrorNeuro::EN_None)
 	{
 		activate();
 	}
@@ -84,7 +89,7 @@ Neuro::update()
 void
 Neuro::randomizeWeights()
 {
-	for (int i = 0; i < weights.size(); i++)
+	for (size_t i = 0; i < weights.size(); i++)
 	{
 		float weight = ((rand() % 21) / 10.0f) - 1.0f;
 		//float weight = 1.0f;
@@ -95,7 +100,7 @@ Neuro::randomizeWeights()
 void
 Neuro::updateWeights()
 {
-	for (int i = 0; i < weights.size(); i++)
+	for (size_t i = 0; i < weights.size(); i++)
 	{
 		float update = learning_factor * delta
 			* inputs[i] * sigmoidDerivate(output);

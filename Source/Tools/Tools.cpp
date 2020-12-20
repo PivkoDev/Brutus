@@ -5,8 +5,9 @@ void
 Tools::splitString(const std::string& input, std::vector<std::string>& out, 
 				   const std::string delim)
 {
-	auto i = 0;
+	
 	auto pos = input.find(delim);
+	auto i = decltype(pos)(0);
 
 	while (pos != std::string::npos)
 	{

@@ -7,10 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Brutus", "Brutus.vcxproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BrutusTests", "BrutusTests\BrutusTests.vcxproj", "{CB4EC9E7-1228-4F96-BFFF-AA947C016D59}"
 	ProjectSection(ProjectDependencies) = postProject
-		{0A7DACFB-8781-4243-B2DA-AB36E1B09B3A} = {0A7DACFB-8781-4243-B2DA-AB36E1B09B3A}
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86} = {D87D5DF9-30B7-4F2A-A391-A28035440C86}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReMind", "..\ReMind\ReMind.vcxproj", "{A0DB4FD4-8B0E-40AB-8AC1-60A1AFC0B61D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BrutusStaticLib", "BrutusStaticLib\BrutusStaticLib.vcxproj", "{D87D5DF9-30B7-4F2A-A391-A28035440C86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,14 @@ Global
 		{A0DB4FD4-8B0E-40AB-8AC1-60A1AFC0B61D}.Release|x64.Build.0 = Release|x64
 		{A0DB4FD4-8B0E-40AB-8AC1-60A1AFC0B61D}.Release|x86.ActiveCfg = Release|Win32
 		{A0DB4FD4-8B0E-40AB-8AC1-60A1AFC0B61D}.Release|x86.Build.0 = Release|Win32
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Debug|x64.ActiveCfg = Debug|x64
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Debug|x64.Build.0 = Debug|x64
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Debug|x86.ActiveCfg = Debug|Win32
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Debug|x86.Build.0 = Debug|Win32
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Release|x64.ActiveCfg = Release|x64
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Release|x64.Build.0 = Release|x64
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Release|x86.ActiveCfg = Release|Win32
+		{D87D5DF9-30B7-4F2A-A391-A28035440C86}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

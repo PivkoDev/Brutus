@@ -2,10 +2,16 @@
 #include "..\Tools\Tools.h"
 #include "..\Tools\Serializer.h"
 
-Net::Net() : name("DefaultNet"), inputs_count(0), outputs_count(0)
+Net::Net() : 
+	name{ "DefaultNet" },
+	inputs_count{ 0 },
+	outputs_count{ 0 },
+	learning_vector_validated{ false },
+	learn_status_ok{ false },
+	layers_count{ 0 }
 {
 	std::cout << "Net cretion started..." << EL;
-	srand(time(NULL));
+	srand(static_cast<unsigned int>(time(NULL)));
 }
 
 Net::~Net()

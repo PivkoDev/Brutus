@@ -85,7 +85,7 @@ DataProvider::addData(StockData& stock_data)
 }
 
 StockData* 
-DataProvider::getData(int index)
+DataProvider::getData(size_t index)
 {
 	if (index >= 0 && index < data_all_stocks.size())
 	{

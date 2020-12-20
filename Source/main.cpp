@@ -14,8 +14,8 @@ int main(int argc, char **argv)
 	//remind_init();
 	
 	Net neural_net;
-	Serializer serializer;
-	serializer.deserialize(neural_net);
+	//Serializer serializer;
+	//serializer.deserialize(neural_net);
 
 	Player player(neural_net);
 	Tools::timeMeasureStamp();
@@ -24,8 +24,7 @@ int main(int argc, char **argv)
 	Tools::timeMeasureStamp();
 
 	//remind_render();
-	
-	serializer.serialize(neural_net);
+	//serializer.serialize(neural_net);
 
 	system("pause");
 	

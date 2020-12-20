@@ -4,7 +4,7 @@
 
 class Serializer;
 
-enum ErrorNeuro
+enum class ErrorNeuro
 {
 	EN_None,
 	EN_InputNotMatchWeights
