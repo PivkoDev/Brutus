@@ -17,7 +17,7 @@ public:
 	float close;
 	int volume;
 
-	DayData::DayData() : date{ "" }, open{ 0.f }, high{ 0.f }, low{ 0.f }, close{ 0.f }, volume{ 0 } {};
+	DayData() : date{ "" }, open{ 0.f }, high{ 0.f }, low{ 0.f }, close{ 0.f }, volume{ 0 } {};
 
 };
 

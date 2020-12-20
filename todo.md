@@ -1,3 +1,5 @@
+- Add .gitignore
+
 - Tier class for binding Rules to Actions
 - unit test - extract learn vector data from net
 

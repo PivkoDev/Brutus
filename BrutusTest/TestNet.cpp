@@ -1,6 +1,8 @@
+#include "pch.h"
+
 #include <gtest/gtest.h>
 
-#include "..\..\..\Source\NeuroNets\Net.h"
+#include "Source\NeuroNets\Net.h"
 
 TEST(NetTest, testCtor)
 {
